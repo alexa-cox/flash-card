@@ -1,5 +1,66 @@
 /* ----------------------------- //  IMPORTS  // ---------------------------- */
-@import './config';
-@import './utilities';
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
 
 /* ------------------------------ // STYLE  // ------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Faculty Glyphic', sans-serif;
+}
+
+// MODAL CUSTOMIZATION //
+// CLOSE BUTTON //
+.modal .btn-close-custom {
+  background-color: #ff5733;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+  &:hover,
+  &:focus {
+    background-color: darken(#ff5733, 10%);
+    cursor: pointer;
+    outline: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(250, 174, 43, 0.5);
+  }
+}
+
+// TEXTAREA //
+/* Custom styling for textareas inside the modal */
+#createFront,
+#createBack {
+  width: 100%; /* Makes the textareas fill the entire width of their container */
+  height: 150px; /* Adjust the height to your preference */
+  font-size: 1.2rem; /* Adjust text size */
+  padding: 12px; /* Padding for text inside the textarea */
+  border: 1px solid #ccc; /* Light border around textarea */
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Includes padding and border in the width/height */
+  margin-bottom: 15px; /* Adds spacing between textareas */
+  resize: vertical; /* Allows vertical resizing */
+}
+
+/* Optionally adjust modal layout for better spacing */
+.modal-body .row {
+  display: block; /* Stacks the textareas vertically */
+}
+
+/* Make sure textareas take full width on smaller screens */
+.modal-body .col-12 {
+  width: 100%;
+}
