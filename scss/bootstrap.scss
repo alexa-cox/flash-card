@@ -1,0 +1,13 @@
+// scss-docs-start theme-color-variables
+$primary: #fff;
+$secondary: #fff;
+$success: #fff;
+$info: #fff;
+$warning: #fff;
+$danger: #fff;
+$light: #fff;
+$dark: #fff;
+// scss-docs-end theme-color-variables
+
+/* ------------------------ CUSTOMIZATIONS ABOVE THIS ----------------------- */
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
