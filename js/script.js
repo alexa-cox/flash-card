@@ -4,6 +4,39 @@ let currentCardIndex = 0;
 const displayInfoFront = document.querySelector('#cardFront');
 const displayInfoBack = document.querySelector('#cardBack');
 
+function displayCard() {
+  if (card_deck.length === 0) {
+    displayInfoFront.innerHTML = ' ';
+    displayInfoBack.innerHTML = ' ';
+    return;
+  }
+
+  const currentCard = card_deck[currentCardIndex];
+  displayInfoFront.innerHTML = currentCard.infoFront;
+  displayInfoBack.innerHTML = currentCard.infoBack;
+}
+
+// CHANGE CARD //
+function previousCard() {
+  if (currentCardIndex === 0) {
+    currentCardIndex = card_deck.length - 1;
+  } else {
+    currentCardIndex -= 1;
+  }
+  displayCard();
+  frontVisible();
+}
+
+function nextCard() {
+  if (currentCardIndex === card_deck.length - 1) {
+    currentCardIndex = 0;
+  } else {
+    currentCardIndex += 1;
+  }
+  displayCard();
+  frontVisible();
+}
+
 // FLIP THE CARD //
 function flipCard() {
   if (cardFront.classList.contains('d-block')) {
