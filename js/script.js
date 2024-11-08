@@ -1,9 +1,7 @@
 //TO DO in order
-// once done we will circle back to:
-// deletion single card
-// editing
+// deletion single card - modal to confirm delete - success message - make sure it deletes any additional cards that are the same that was pushed to the deck
+// editing - modal likely - success message - make sure it edits all similar
 // filtered mode i.e. show all hard cards
-// Show difficulty in the buttons
 
 //remember to add:
 // flip animation
@@ -139,10 +137,23 @@ function checkDifficulty(card) {
 
 function setDifficulty(difficulty) {
   if (card_deck.length === 0) return;
-  card_deck[currentCardIndex].infoDifficulty = difficulty;
+
+  const currentCard = card_deck[currentCardIndex];
+
+  currentCard.infoDifficulty = difficulty;
+
+  card_deck.forEach((card) => {
+    if (
+      card.infoFront === currentCard.infoFront &&
+      card.infoBack === currentCard.infoBack
+    ) {
+      card.infoDifficulty = difficulty;
+    }
+  });
+
   updateLocalStorage();
   displayCard();
-  checkDifficulty(card_deck[currentCardIndex]);
+  checkDifficulty(currentCard);
 }
 
 // CHANGE CARD //
