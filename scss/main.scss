@@ -12,6 +12,30 @@ body {
   font-family: 'Faculty Glyphic', sans-serif;
 }
 
+// CARD //
+.card {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 650px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+
+  aspect-ratio: 5/3;
+
+  overflow: hidden;
+}
+
+.line {
+  height: 1px;
+  background-color: red;
+}
+
+.contents {
+  max-height: 70%; /* Restrict content height so line is visible */
+  overflow-y: auto; /* Make the content scrollable */
+  padding: 1rem;
+}
+
 // MODAL CUSTOMIZATION //
 // CLOSE BUTTON //
 .modal .btn-close-custom {
@@ -50,7 +74,6 @@ body {
   padding: 12px; /* Padding for text inside the textarea */
   border: 1px solid #ccc; /* Light border around textarea */
   border-radius: 5px; /* Rounded corners */
-  box-sizing: border-box; /* Includes padding and border in the width/height */
   margin-bottom: 15px; /* Adds spacing between textareas */
   resize: vertical; /* Allows vertical resizing */
 }

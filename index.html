@@ -42,7 +42,7 @@
           id="navbarNavDropdown"
         >
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
+            <li class="nav-item ms-auto">
               <a
                 class="nav-link text-dark fs-4"
                 href="#createCardModal"
@@ -56,8 +56,84 @@
       </div>
     </nav>
 
+    <!-- -------------------------------- CARD --------------------------------- -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 position-relative">
+          <!-- Relative positioning to position the buttons -->
+
+          <!-- Flash Card -->
+          <div
+            class="card position-relative"
+            onclick="flipCard()"
+          >
+            <div class="line mt-5"></div>
+            <p
+              id="cardFront"
+              class="contents text-center align-middle text-wrap d-block"
+            >
+              Front of the card
+            </p>
+            <p
+              id="cardBack"
+              class="contents text-center align-middle text-wrap d-none"
+            >
+              Back of the card
+            </p>
+
+            <!-- Previous and Next Buttons -->
+            <button
+              class="btn position-absolute top-50 start-0 translate-middle-y"
+              style="left: -40px"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button
+              class="btn position-absolute top-50 end-0 translate-middle-y"
+              style="right: -40px"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <div
+              class="container position-absolute bottom-0 d-flex justify-content-between mb-2"
+            >
+              <button class="btn btn-outline-dark">Edit</button>
+              <!-- For the Edit button: You might want it to open a modal or toggle a form where the user can edit the card's content. -->
+              <button class="btn btn-outline-danger">Delete</button>
+              <!-- For the Delete button: You can trigger a confirmation prompt or modal to ask the user if they’re sure they want to delete the card. -->
+            </div>
+          </div>
+
+          <!-- Button group centered below the card -->
+          <div
+            class="btn-group d-flex justify-content-center mt-3"
+            role="group"
+            aria-label="Basic example"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-dark border-dark border-2 border-end-0"
+            >
+              Easy
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-dark border-dark border-2"
+            >
+              Medium
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-dark border-dark border-2 border-start-0"
+            >
+              Hard
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- -------------------------------- MODAL -------------------------------- -->
-    <!-- Modal -->
     <div
       class="modal fade"
       id="createCardModal"
