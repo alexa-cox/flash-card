@@ -110,19 +110,25 @@
           >
             <button
               type="button"
+              id="btnEasy"
               class="btn btn-outline-dark border-dark border-2 border-end-0"
+              onclick="setDifficulty('easy')"
             >
               Easy
             </button>
             <button
               type="button"
+              id="btnMedium"
               class="btn btn-outline-dark border-dark border-2"
+              onclick="setDifficulty('medium')"
             >
               Medium
             </button>
             <button
               type="button"
+              id="btnHard"
               class="btn btn-outline-dark border-dark border-2 border-start-0"
+              onclick="setDifficulty('hard')"
             >
               Hard
             </button>
@@ -174,7 +180,12 @@
                 </div>
               </div>
             </div>
-            <p class="text-center text-success">A new card has been added.</p>
+            <p
+              class="text-center text-success d-none"
+              id="successMessage"
+            >
+              A new card has been added.
+            </p>
           </div>
           <div class="modal-footer border-top-0">
             <div class="container-fluid d-flex justify-content-center">
