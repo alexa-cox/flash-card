@@ -1,5 +1,5 @@
 //TO DO in order
-// deletion single card - modal to confirm delete - success message - make sure it deletes any additional cards that are the same that was pushed to the deck
+// deletion single card - figure out how to make sure the flip doesn't happen
 // editing - modal likely - success message - make sure it edits all similar
 // filtered mode i.e. show all hard cards
 
@@ -10,6 +10,7 @@
 // VARIABLES //
 let card_deck = JSON.parse(localStorage.getItem('flashcardDeck')) || []; //get saved deck or a null array
 let currentCardIndex = 0;
+let cardToDelete = null;
 const displayInfoFront = document.querySelector('#cardFront');
 const displayInfoBack = document.querySelector('#cardBack');
 const createFront = document.getElementById('createFront');
@@ -154,6 +155,27 @@ function setDifficulty(difficulty) {
   updateLocalStorage();
   displayCard();
   checkDifficulty(currentCard);
+}
+
+// DELETE CARD //
+function deleteCard() {
+  if (cardToDelete !== null) {
+    card_deck = card_deck.filter(
+      (card) =>
+        card.infoFront !== cardToDelete.infoFront ||
+        card.infoBack !== cardToDelete.infoBack
+    );
+
+    updateLocalStorage();
+    displayCard();
+  }
+}
+function openDeleteModal(cardIndex) {
+  const card = card_deck[cardIndex];
+  cardToDelete = {
+    infoFront: card.infoFront,
+    infoBack: card.infoBack,
+  };
 }
 
 // CHANGE CARD //
