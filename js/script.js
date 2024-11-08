@@ -4,6 +4,7 @@ let currentCardIndex = 0;
 const displayInfoFront = document.querySelector('#cardFront');
 const displayInfoBack = document.querySelector('#cardBack');
 
+// DISPLAY CARD //
 function displayCard() {
   if (card_deck.length === 0) {
     displayInfoFront.innerHTML = ' ';
@@ -16,8 +17,23 @@ function displayCard() {
   displayInfoBack.innerHTML = currentCard.infoBack;
 }
 
+// CREATE A CARD //
+function createCard() {
+  let cardInfo = {
+    infoFront: createFront.value,
+    infoBack: createBack.value,
+    infoDifficulty: '',
+  };
+  card_deck.push(cardInfo); //adds to the array
+  updateLocalStorage(); //updates local storage
+  createFront.value = ' '; //clears the textareas for additional input
+  createBack.value = ' ';
+  displayCard(); //calls the display card function to display the newly added card
+}
+
 // CHANGE CARD //
-function previousCard() {
+function previousCard(event) {
+  event.stopPropagation();
   if (currentCardIndex === 0) {
     currentCardIndex = card_deck.length - 1;
   } else {
@@ -27,7 +43,8 @@ function previousCard() {
   frontVisible();
 }
 
-function nextCard() {
+function nextCard(event) {
+  event.stopPropagation();
   if (currentCardIndex === card_deck.length - 1) {
     currentCardIndex = 0;
   } else {

@@ -71,28 +71,24 @@
             <p
               id="cardFront"
               class="contents text-center align-middle text-wrap d-block"
-            >
-              Front of the card
-            </p>
+            ></p>
             <p
               id="cardBack"
               class="contents text-center align-middle text-wrap d-none"
-            >
-              Back of the card
-            </p>
+            ></p>
 
             <!-- Previous and Next Buttons -->
             <button
               class="btn position-absolute top-50 start-0 translate-middle-y"
               style="left: -40px"
-              onclick="previousCard()"
+              onclick="previousCard(event)"
             >
               <i class="fa-solid fa-chevron-left"></i>
             </button>
             <button
               class="btn position-absolute top-50 end-0 translate-middle-y"
               style="right: -40px"
-              onclick="nextCard()"
+              onclick="nextCard(event)"
             >
               <i class="fa-solid fa-chevron-right"></i>
             </button>
@@ -185,6 +181,7 @@
               <button
                 type="button"
                 class="btn btn-primary ps-5 pe-5"
+                onclick="createCard()"
               >
                 Add Card
               </button>
